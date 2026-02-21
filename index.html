@@ -32,14 +32,17 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section id="home" class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="videos/vid.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Capturing Moments, Creating Stories</h1>
             <p class="hero-subtitle">Professional Photography & Videography Services</p>
             <a href="#contact" class="cta-button">Get In Touch</a>
         </div>
-        <div class="hero-background"></div>
     </section>
 
     <!-- About Section -->
@@ -58,7 +61,7 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    <div class="placeholder-image">📸</div>
+                    <img src="image/hammad.webp" alt="Hammad Shahid - Photographer">
                 </div>
             </div>
         </div>
@@ -68,61 +71,43 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">My Work</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="photography">Photography</button>
-                <button class="filter-btn" data-filter="videography">Videography</button>
-                <button class="filter-btn" data-filter="editing">Editing</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="photography">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300?text=Portrait+Photography" alt="Portrait">
-                        <div class="overlay">
-                            <p>Portrait Photography</p>
-                        </div>
+            <div class="portfolio-categories">
+                <a href="portrait.html" class="category-card">
+                    <img src="https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Portrait Photography">
+                    <div class="category-overlay">
+                        <h3>Portrait Photography</h3>
                     </div>
-                </div>
-                <div class="portfolio-item" data-category="photography">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300?text=Wedding+Photography" alt="Wedding">
-                        <div class="overlay">
-                            <p>Wedding Photography</p>
-                        </div>
+                </a>
+                <a href="wedding.html" class="category-card">
+                    <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Wedding Photography">
+                    <div class="category-overlay">
+                        <h3>Wedding Photography</h3>
                     </div>
-                </div>
-                <div class="portfolio-item" data-category="videography">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300?text=Wedding+Video" alt="Video">
-                        <div class="overlay">
-                            <p>Wedding Videography</p>
-                        </div>
+                </a>
+                <a href="events.html" class="category-card">
+                    <img src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Event Photography">
+                    <div class="category-overlay">
+                        <h3>Event Photography</h3>
                     </div>
-                </div>
-                <div class="portfolio-item" data-category="editing">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300?text=Photo+Editing" alt="Editing">
-                        <div class="overlay">
-                            <p>Photo Editing</p>
-                        </div>
+                </a>
+                <a href="product.html" class="category-card">
+                    <img src="https://images.pexels.com/photos/1444505/pexels-photo-1444505.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Product Photography">
+                    <div class="category-overlay">
+                        <h3>Product Photography</h3>
                     </div>
-                </div>
-                <div class="portfolio-item" data-category="photography">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300?text=Event+Photography" alt="Event">
-                        <div class="overlay">
-                            <p>Event Photography</p>
-                        </div>
+                </a>
+                <a href="editing.html" class="category-card">
+                    <img src="https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Photo Editing">
+                    <div class="category-overlay">
+                        <h3>Photo Editing</h3>
                     </div>
-                </div>
-                <div class="portfolio-item" data-category="videography">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/400x300?text=Corporate+Video" alt="Corporate">
-                        <div class="overlay">
-                            <p>Corporate Videography</p>
-                        </div>
+                </a>
+                <a href="videography.html" class="category-card">
+                    <img src="https://images.pexels.com/photos/3772510/pexels-photo-3772510.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Videography">
+                    <div class="category-overlay">
+                        <h3>Videography</h3>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -133,27 +118,42 @@
             <h2 class="section-title">Services</h2>
             <div class="services-grid">
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Photography Service">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-camera"></i>
                     </div>
                     <h3>Photography</h3>
                     <p>Professional photography for weddings, events, portraits, and commercial projects. High-quality images captured with modern equipment.</p>
                 </div>
+
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3373028/pexels-photo-3373028.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Videography Service">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-video"></i>
                     </div>
                     <h3>Videography</h3>
                     <p>Cinematic videography services for weddings, events, corporate videos, and creative projects. Professional editing included.</p>
                 </div>
+
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Photo Editing Service">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-edit"></i>
                     </div>
                     <h3>Photo Editing</h3>
                     <p>Professional photo retouching and editing services. Color correction, enhancement, and creative editing to bring your photos to life.</p>
                 </div>
+
                 <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3807516/pexels-photo-3807516.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Video Editing Service">
+                    </div>
                     <div class="service-icon">
                         <i class="fas fa-film"></i>
                     </div>
@@ -174,34 +174,34 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+92 XXX XXXXXXX</p>
+                            <p>+91 84499 30717</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>hammad@example.com</p>
+                            <p>hammadshahid226@gmail.com</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <h4>Location</h4>
-                            <p>Pakistan</p>
+                            <p>Lucknow, Uttar Pradesh</p>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-icon" title="Instagram">
+                        <a href="https://www.instagram.com/hammaadshahid_" class="social-icon" title="Instagram" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-icon" title="Facebook">
+                        <a href="https://facebook.com" class="social-icon" title="Facebook" target="_blank">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="social-icon" title="LinkedIn">
+                        <a href="https://linkedin.com" class="social-icon" title="LinkedIn" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" class="social-icon" title="YouTube">
+                        <a href="https://youtube.com" class="social-icon" title="YouTube" target="_blank">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>

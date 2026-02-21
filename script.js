@@ -220,3 +220,21 @@ document.querySelectorAll('.service-card, .portfolio-item').forEach(element => {
     element.style.opacity = '0';
     observer.observe(element);
 });
+
+// Pause videos when not visible
+const videos = document.querySelectorAll('video');
+const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.play().catch(() => {
+                // Autoplay may be blocked by browser
+            });
+        } else {
+            entry.target.pause();
+        }
+    });
+}, { threshold: 0.5 });
+
+videos.forEach(video => {
+    videoObserver.observe(video);
+});
