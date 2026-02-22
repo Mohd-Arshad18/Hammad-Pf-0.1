@@ -134,10 +134,9 @@ messageInput.addEventListener('input', () => {
 });
 
 // Form submission
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validate all fields
     const isNameValid = validateName();
     const isEmailValid = validateEmail();
     const isMessageValid = validateMessage();
@@ -147,30 +146,30 @@ contactForm.addEventListener('submit', (e) => {
         return;
     }
 
-    // Collect form data
-    const formData = {
-        name: nameInput.value.trim(),
-        email: emailInput.value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        service: serviceSelect.value,
-        message: messageInput.value.trim()
-    };
+    const formData = new FormData(contactForm);
 
-    // Log form data (in real scenario, send to backend)
-    console.log('Form Data:', formData);
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
 
-    // Show success message
-    showFormMessage('Thank you! Your message has been sent successfully. Hammad will get back to you soon!', 'success');
+        const result = await response.json();
 
-    // Reset form
-    contactForm.reset();
+        if (result.success) {
+            showFormMessage(
+                'Thank you! Your message has been sent successfully. Hammad will get back to you soon!',
+                'success'
+            );
+            contactForm.reset();
+        } else {
+            showFormMessage('Something went wrong. Please try again.', 'error');
+        }
 
-    // Clear error messages
-    document.getElementById('nameError').textContent = '';
-    document.getElementById('emailError').textContent = '';
-    document.getElementById('messageError').textContent = '';
+    } catch (error) {
+        showFormMessage('Error sending message.', 'error');
+    }
 
-    // Hide message after 5 seconds
     setTimeout(() => {
         formMessage.classList.remove('success', 'error');
         formMessage.textContent = '';
@@ -238,3 +237,5 @@ const videoObserver = new IntersectionObserver((entries) => {
 videos.forEach(video => {
     videoObserver.observe(video);
 });
+
+
