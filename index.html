@@ -206,20 +206,21 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
+                    <input type="hidden" name="access_key" value="b70ed9d3-c0d1-4f28-987e-67d5667f4735">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" id="name" required>
+                        <input type="text" placeholder="Your Name" name="name" id="name" required>
                         <span class="error-message" id="nameError"></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" id="email" required>
+                        <input type="email" placeholder="Your Email" name="email" id="email" required>
                         <span class="error-message" id="emailError"></span>
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="Your Phone Number" id="phone">
+                        <input type="tel" placeholder="Your Phone Number" name="phone" id="phone">
                     </div>
                     <div class="form-group">
-                        <select id="service" required>
+                        <select name="service" id="service" required>
                             <option value="">Select Service</option>
                             <option value="photography">Photography</option>
                             <option value="videography">Videography</option>
@@ -229,7 +230,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" id="message" rows="6" required></textarea>
+                        <textarea placeholder="Your Message" name="message" id="message" rows="6" required></textarea>
                         <span class="error-message" id="messageError"></span>
                     </div>
                     <button type="submit" class="submit-button">Send Message</button>
