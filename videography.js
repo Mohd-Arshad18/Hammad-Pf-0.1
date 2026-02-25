@@ -32,7 +32,7 @@ function getEmbedUrl(videoType, videoSrc) {
         
         if (videoSrc.includes('youtube.com/embed/')) {
             // Already in embed format
-            return videoSrc;
+            return videoSrc + '?autoplay=1&controls=1';
         } else if (videoSrc.includes('youtu.be/')) {
             videoId = videoSrc.split('youtu.be/')[1].split('?')[0];
         } else if (videoSrc.includes('youtube.com/watch?v=')) {
@@ -75,6 +75,8 @@ playButtons.forEach(btn => {
         modalIframe.src = embedUrl;
         videoModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
     });
 });
 
@@ -83,6 +85,7 @@ videoModalClose.addEventListener('click', () => {
     videoModal.style.display = 'none';
     modalIframe.src = ''; // Stop video
     document.body.style.overflow = 'auto';
+    document.body.style.position = 'static';
 });
 
 // Close modal when clicking outside
@@ -91,6 +94,7 @@ videoModal.addEventListener('click', (e) => {
         videoModal.style.display = 'none';
         modalIframe.src = ''; // Stop video
         document.body.style.overflow = 'auto';
+        document.body.style.position = 'static';
     }
 });
 
@@ -100,8 +104,18 @@ document.addEventListener('keydown', (e) => {
         videoModal.style.display = 'none';
         modalIframe.src = ''; // Stop video
         document.body.style.overflow = 'auto';
+        document.body.style.position = 'static';
     }
 });
+
+// Prevent modal from scrolling behind on mobile
+if (videoModal) {
+    videoModal.addEventListener('touchmove', (e) => {
+        if (e.target === videoModal) {
+            e.preventDefault();
+        }
+    }, false);
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -123,6 +137,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Add animation on scroll
 const observerOptions = {
+    threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
 };
 
@@ -138,4 +153,14 @@ const observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.video-gallery-item, .cta-section').forEach(element => {
     element.style.opacity = '0';
     observer.observe(element);
+});
+
+// Fix for iOS Safari orientation change
+window.addEventListener('orientationchange', () => {
+    if (videoModal.style.display === 'flex') {
+        // Adjust on orientation change
+        setTimeout(() => {
+            videoModal.style.display = 'flex';
+        }, 100);
+    }
 });
